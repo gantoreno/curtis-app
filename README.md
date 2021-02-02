@@ -6,7 +6,7 @@
 
 ![Node.js CI](https://github.com/gantoreno/curtis-app/workflows/Node.js%20CI/badge.svg) ![Node version](https://img.shields.io/badge/node-v14.x-brightgreen) ![License](https://img.shields.io/github/license/gantoreno/curtis-app)
 
-Files for the [Curtis](https://github.com/gantoreno/curtis-engine) mobile application, the system's main distribution channel. This app was built with [React Native](https://reactnative.dev/) through [Expo](https://expo.io/) and [Firebase](https://firebase.google.com/) as serverless cloud provider.
+Files for the [Curtis](https://github.com/gantoreno/curtis-engine) mobile application, the system's main distribution channel. This app was built with [React Native](https://reactnative.dev/) through [Expo](https://expo.io/) and [Firebase](https://firebase.google.com/) as serverless cloud provider, as well as [Redux](https://es.redux.js.org/) for state management.
 
 The app's purpose is to be a way for medical experts to have a lightweight, fast, portable & secure diagnosis system when performing ECG analysis on their patients (and their own diagnoses too). Create an account, and start diagnosing just by entering the required ECG values & vital information. When diagnosing, you can choose to store the results in order to keep them for the future, or discard them if you no longer need them.
 
