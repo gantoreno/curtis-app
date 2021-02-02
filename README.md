@@ -4,7 +4,7 @@
 
 # Curtis – The application
 
-![Node.js CI](https://github.com/gantoreno/curtis-app/workflows/Node.js%20CI/badge.svg) ![License](https://img.shields.io/github/license/gantoreno/curtis-app)
+![Node.js CI](https://github.com/gantoreno/curtis-app/workflows/Node.js%20CI/badge.svg) ![Node version](https://img.shields.io/badge/node-v14.x-brightgreen) ![License](https://img.shields.io/github/license/gantoreno/curtis-app)
 
 Files for the [Curtis](https://github.com/gantoreno/curtis-engine) mobile application, the system's main distribution channel. This app was built with [React Native](https://reactnative.dev/) through [Expo](https://expo.io/) and [Firebase](https://firebase.google.com/) as serverless cloud provider.
 
