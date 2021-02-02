@@ -61,7 +61,7 @@ The app should now open in the expo client of the Android simulator.
 
 The Curtis app uses [Jest](https://jestjs.io/) as a test runner, together with [Enzyme](https://enzymejs.github.io/enzyme/) as rendering library for the unit testing suites. For end-to-end testing, [Detox](https://github.com/wix/Detox) comes into place to install the app and run all tests inside the `e2e` folder.
 
-> Due to technical reasons, Enzyme is using [JSDOM](https://github.com/jsdom/jsdom/releases) version [15.2.1](https://github.com/jsdom/jsdom/releases/tag/15.2.1), since [16.4.0] introduced some issues that make testing impossible for React Native components with Enzyme's `mount` (see [this](https://github.com/enzymejs/enzyme/issues/2437) issue). Because it's an older release, all `console.error` messages have been mocked to a `jest.fn()` function in order to mute them, since JSDOM complains about component casing, but does run the tests well, and that's what matters the most.
+> Due to technical reasons, Enzyme is using [JSDOM](https://github.com/jsdom/jsdom/releases) version [15.2.1](https://github.com/jsdom/jsdom/releases/tag/15.2.1), since [16.0.0](https://github.com/jsdom/jsdom/releases/tag/16.0.0) introduced some issues that made testing impossible for React Native components with Enzyme's `mount` (see [this](https://github.com/enzymejs/enzyme/issues/2437) issue). Because it's an older release, all `console.error` messages have been mocked to a `jest.fn()` function in order to mute them, since JSDOM complains about component casing, but does run the tests well, and that's what matters the most.
 
 ### Unit tests
 
