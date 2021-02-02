@@ -1,0 +1,20 @@
+{
+  "testRunner": "jest",
+  "runnerConfig": "e2e/config.json",
+  "configurations": {
+    "ios": {
+      "type": "ios.simulator",
+      "binaryPath": "bin/ios/curtis.app",
+      "device": {
+        "type": "iPhone 12 Pro Max"
+      }
+    },
+    "android": {
+      "type": "android.emulator",
+      "binaryPath": "bin/android/curtis.apk",
+      "device": {
+        "avdName": "Pixel_2_API_29"
+      }
+    }
+  }
+}

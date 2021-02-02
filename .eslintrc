@@ -1,0 +1,16 @@
+{
+  "env": {
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "root": true,
+  "rules": {
+    "no-alert": "off",
+    "react/forbid-prop-types": 0,
+    "react/jsx-props-no-spreading": ["error", { "custom": "ignore" }]
+  },
+  "parser": "babel-eslint",
+  "plugins": ["prettier"],
+  "extends": ["airbnb", "prettier", "prettier/react"]
+}

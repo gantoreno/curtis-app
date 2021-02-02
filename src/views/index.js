@@ -1,0 +1,9 @@
+export { default as WelcomeView } from './WelcomeView';
+export { default as SignInView } from './SignInView';
+export { default as SignUpView } from './SignUpView';
+export { default as OneMoreStepView } from './OneMoreStepView';
+export { default as HomeView } from './HomeView';
+export { default as HistoryView } from './HistoryView';
+export { default as ProfileView } from './ProfileView';
+export { default as DiagnosisView } from './DiagnosisView';
+export { default as DetailsView } from './DetailsView';
