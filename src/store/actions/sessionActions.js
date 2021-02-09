@@ -24,7 +24,9 @@ export const signIn = (email, password, callback) => async (dispatch) => {
 
     Alert.alert('Success', "You're now signed in");
 
-    callback();
+    if (callback) {
+      callback();
+    }
   } catch (e) {
     Alert.alert(e);
   } finally {
@@ -65,7 +67,9 @@ export const signUp = (
 
     Alert.alert('Success', "You're now signed up");
 
-    callback();
+    if (callback) {
+      callback();
+    }
   } catch (e) {
     Alert.alert(e);
   } finally {
