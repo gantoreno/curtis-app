@@ -30,7 +30,7 @@ global.navigator = {
 global.console = {
   log: console.log,
   error: jest.fn(),
-  warn: console.warn,
+  warn: jest.fn(),
   info: console.info,
   debug: console.debug,
 };
