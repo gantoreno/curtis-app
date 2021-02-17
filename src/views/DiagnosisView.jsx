@@ -80,7 +80,9 @@ const DiagnosisView = ({ eva, route, navigation }) => {
       PQ: parseFloat(PQ),
       QRS: parseFloat(QRS),
       QT: parseFloat(QT),
-      QTcFra: QTcFra ? parseFloat(QTcFra) : parseQTcFra(parseFloat(QT, HR)),
+      QTcFra: QTcFra
+        ? parseFloat(QTcFra)
+        : parseQTcFra(parseFloat(QT), parseFloat(HR)),
     };
 
     dispatch(
