@@ -28,7 +28,7 @@ export const signIn = (email, password, callback) => async (dispatch) => {
       callback();
     }
   } catch (e) {
-    Alert.alert(e);
+    Alert.alert('Error', e.message);
   } finally {
     dispatch(setLoadingStatus(false));
   }
@@ -100,7 +100,7 @@ export const signOut = (callback) => async (dispatch) => {
       },
     ]);
   } catch (e) {
-    Alert.alert(e);
+    Alert.alert('Something went wrong', 'Please try again later');
   }
 };
 
