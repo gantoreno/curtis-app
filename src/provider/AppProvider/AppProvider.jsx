@@ -8,9 +8,9 @@ import { Provider } from 'react-redux';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
 
-import store from '../store';
-import theme from '../theme/custom-theme.json';
-import mapping from '../mapping/custom-mapping.json';
+import store from '../../store';
+import theme from '../../theme/custom-theme.json';
+import mapping from '../../mapping/custom-mapping.json';
 
 const AppProvider = ({ children }) => (
   <Provider store={store}>
