@@ -12,15 +12,15 @@ import {
   withStyles,
 } from '@ui-kitten/components';
 
-import { signUp } from '../store/actions/sessionActions';
-import { Button, Wrapper, FormLabel } from '../shared';
-import { parseSexFromIndex, parseCustomDateString } from '../utils/tools';
+import { signUp } from '../../store/actions/sessionActions';
+import { Button, Wrapper, FormLabel } from '../../shared';
+import { parseSexFromIndex, parseCustomDateString } from '../../utils/tools';
 import {
   validateSex,
   validateWeight,
   validateHeight,
   validateBirthDate,
-} from '../utils/validation';
+} from '../../utils/validation';
 
 const OneMoreStepView = ({ eva, route }) => {
   const dispatch = useDispatch();

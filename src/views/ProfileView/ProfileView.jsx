@@ -6,9 +6,9 @@ import { Text, withStyles } from '@ui-kitten/components';
 import { useSelector, useDispatch } from 'react-redux';
 import { View, Alert, ScrollView, SafeAreaView } from 'react-native';
 
-import { signOut } from '../store/actions/sessionActions';
-import { Button, Wrapper, DataEntry } from '../shared';
-import { parseSexFromIndex, parseAgeFromDateString } from '../utils/tools';
+import { signOut } from '../../store/actions/sessionActions';
+import { Button, Wrapper, DataEntry } from '../../shared';
+import { parseSexFromIndex, parseAgeFromDateString } from '../../utils/tools';
 
 const ProfileView = ({ eva }) => {
   const dispatch = useDispatch();

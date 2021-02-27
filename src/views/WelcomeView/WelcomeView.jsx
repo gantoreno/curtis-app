@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { SafeAreaView } from 'react-native';
 import { Text, withStyles } from '@ui-kitten/components';
 
-import { Logo, Button, Wrapper, Preloader } from '../shared';
+import { Logo, Button, Wrapper, Preloader } from '../../shared';
 
 const WelcomeView = ({ eva, navigation }) => {
   const { isLoading } = useSelector((state) => state.session);

@@ -8,9 +8,9 @@ import { View, Alert, ScrollView, SafeAreaView } from 'react-native';
 import {
   saveDiagnosis,
   deleteDiagnosis,
-} from '../store/actions/sessionActions';
-import { Tag, Button, Wrapper, DataEntry } from '../shared';
-import { parseSexFromIndex, parseAgeFromDateString } from '../utils/tools';
+} from '../../store/actions/sessionActions';
+import { Tag, Button, Wrapper, DataEntry } from '../../shared';
+import { parseSexFromIndex, parseAgeFromDateString } from '../../utils/tools';
 
 const DetailsView = ({ eva, navigation, route }) => {
   const dispatch = useDispatch();

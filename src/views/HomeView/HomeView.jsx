@@ -6,7 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Text, withStyles } from '@ui-kitten/components';
 import { Alert, SafeAreaView, TouchableHighlight } from 'react-native';
 
-import { Logo, Button, Wrapper } from '../shared';
+import { Logo, Button, Wrapper } from '../../shared';
 
 const HomeView = ({ eva, navigation }) => {
   const { user } = useSelector((state) => state.session);

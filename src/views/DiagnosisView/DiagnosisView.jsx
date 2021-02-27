@@ -16,14 +16,14 @@ import {
   IndexPath,
 } from '@ui-kitten/components';
 
-import { runDiagnosis } from '../store/actions/sessionActions';
-import { Button, Wrapper, FormLabel } from '../shared';
+import { runDiagnosis } from '../../store/actions/sessionActions';
+import { Button, Wrapper, FormLabel } from '../../shared';
 import {
   parseQTcFra,
   parseSexFromIndex,
   parseCustomDateString,
   parseAgeFromDateString,
-} from '../utils/tools';
+} from '../../utils/tools';
 import {
   validateBirthDate,
   validateSex,
@@ -35,7 +35,7 @@ import {
   validateQRS,
   validateQT,
   validateQTcFra,
-} from '../utils/validation';
+} from '../../utils/validation';
 
 const DiagnosisView = ({ eva, route, navigation }) => {
   const dispatch = useDispatch();

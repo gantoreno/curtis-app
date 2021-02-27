@@ -5,14 +5,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Text, Icon, Input, withStyles } from '@ui-kitten/components';
 import { View, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
 
-import { checkForEmail } from '../store/actions/sessionActions';
-import { Wrapper, Button, FormLabel } from '../shared';
+import { checkForEmail } from '../../store/actions/sessionActions';
+import { Wrapper, Button, FormLabel } from '../../shared';
 import {
   validateName,
   validateEmail,
   validatePassword,
   validatePasswordRepeat,
-} from '../utils/validation';
+} from '../../utils/validation';
 
 const SignUpView = ({ eva, navigation }) => {
   const dispatch = useDispatch();

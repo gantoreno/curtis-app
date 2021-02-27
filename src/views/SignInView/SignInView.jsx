@@ -5,9 +5,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Text, Icon, Input, withStyles } from '@ui-kitten/components';
 import { View, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
 
-import { signIn } from '../store/actions/sessionActions';
-import { Button, Wrapper, FormLabel } from '../shared';
-import { validateEmail, validatePassword } from '../utils/validation';
+import { signIn } from '../../store/actions/sessionActions';
+import { Button, Wrapper, FormLabel } from '../../shared';
+import { validateEmail, validatePassword } from '../../utils/validation';
 
 const SignInView = ({ eva, navigation }) => {
   const dispatch = useDispatch();

@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { Text, Button, withStyles } from '@ui-kitten/components';
 import { View, ScrollView, SafeAreaView } from 'react-native';
 
-import { Tag, Wrapper } from '../shared';
+import { Tag, Wrapper } from '../../shared';
 
 const HistoryCard = ({
   color,

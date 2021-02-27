@@ -7,8 +7,8 @@ import { useSelector } from 'react-redux';
 import { mount, shallow } from 'enzyme';
 
 import DiagnosisView from './DiagnosisView';
-import { navigation } from '../../__mocks__';
-import { AppProvider } from '../provider';
+import { navigation } from '../../../__mocks__';
+import { AppProvider } from '../../provider';
 
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),

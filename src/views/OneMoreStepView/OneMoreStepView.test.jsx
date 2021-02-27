@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { mount, shallow } from 'enzyme';
 
 import OneMoreStepView from './OneMoreStepView';
-import { AppProvider } from '../provider';
+import { AppProvider } from '../../provider';
 
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
