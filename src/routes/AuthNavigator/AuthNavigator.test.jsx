@@ -4,14 +4,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import HomeNavigator from './HomeNavigator';
-import { AppProvider } from '../provider';
+import AuthNavigator from './AuthNavigator';
+import { AppProvider } from '../../provider';
 
-describe('HomeNavigator', () => {
+describe('AuthNavigator', () => {
   it('renders without crashing', async () => {
     shallow(
       <AppProvider>
-        <HomeNavigator />
+        <AuthNavigator />
       </AppProvider>
     );
   });

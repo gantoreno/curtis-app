@@ -4,7 +4,7 @@ import { View, Platform } from 'react-native';
 import { Icon, withStyles } from '@ui-kitten/components';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { HomeView, HistoryView, ProfileView } from '../views';
+import { HomeView, HistoryView, ProfileView } from '../../views';
 
 const TabBarIcon = ({ name, color, focused }) => {
   const tabBarIconBackgroundStyle = {

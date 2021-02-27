@@ -3,10 +3,14 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@ui-kitten/components';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import HomeNavigator from './HomeNavigator';
-import { DiagnosisView, DetailsView } from '../views';
+import {
+  SignUpView,
+  SignInView,
+  WelcomeView,
+  OneMoreStepView,
+} from '../../views';
 
-const AppNavigator = ({ eva }) => {
+const AuthNavigator = ({ eva }) => {
   const { Navigator, Screen } = createStackNavigator();
 
   const screenOptions = {
@@ -19,17 +23,18 @@ const AppNavigator = ({ eva }) => {
     <Navigator
       headerMode="none"
       screenOptions={screenOptions}
-      initialRouteName="Home"
+      initialRouteName="Welcome"
     >
-      <Screen name="Home" component={HomeNavigator} />
-      <Screen name="Details" component={DetailsView} />
-      <Screen name="Diagnosis" component={DiagnosisView} />
+      <Screen name="Sign In" component={SignInView} />
+      <Screen name="Sign Up" component={SignUpView} />
+      <Screen name="Welcome" component={WelcomeView} />
+      <Screen name="One More Step" component={OneMoreStepView} />
     </Navigator>
   );
 };
 
-AppNavigator.propTypes = {
+AuthNavigator.propTypes = {
   eva: PropTypes.object.isRequired,
 };
 
-export default withStyles(AppNavigator);
+export default withStyles(AuthNavigator);
