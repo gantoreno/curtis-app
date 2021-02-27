@@ -5,7 +5,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import Preloader from './Preloader';
-import { AppProvider } from '../provider';
+import { AppProvider } from '../../provider';
 
 describe('Logo', () => {
   it('renders without crashing', async () => {

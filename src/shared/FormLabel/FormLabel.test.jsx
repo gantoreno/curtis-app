@@ -5,7 +5,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 
 import FormLabel from './FormLabel';
-import { AppProvider } from '../provider';
+import { AppProvider } from '../../provider';
 
 describe('FormLabel', () => {
   it('renders without crashing', async () => {

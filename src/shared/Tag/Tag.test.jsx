@@ -5,7 +5,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 
 import Tag from './Tag';
-import { AppProvider } from '../provider';
+import { AppProvider } from '../../provider';
 
 describe('Tag', () => {
   it('renders without crashing', async () => {

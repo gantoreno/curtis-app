@@ -5,7 +5,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 
 import Button from './Button';
-import { AppProvider } from '../provider';
+import { AppProvider } from '../../provider';
 
 describe('Button', () => {
   it('renders without crashing', async () => {

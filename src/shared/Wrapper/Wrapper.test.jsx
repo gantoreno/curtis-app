@@ -6,7 +6,7 @@ import { Text } from 'react-native';
 import { shallow } from 'enzyme';
 
 import Wrapper from './Wrapper';
-import { AppProvider } from '../provider';
+import { AppProvider } from '../../provider';
 
 describe('Wrapper', () => {
   it('renders without crashing', async () => {
