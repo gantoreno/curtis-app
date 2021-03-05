@@ -134,6 +134,42 @@ export const restoreUser = () => async (dispatch) => {
   }
 };
 
+export const editUser = (
+  name,
+  sex,
+  birthDate,
+  weight,
+  height,
+  email,
+  callback
+) => async (dispatch, getState) => {
+  dispatch(setLoadingStatus(true));
+
+  try {
+    const { user } = await getState().session;
+
+    if (email !== user.email) {
+      await firebase.auth().currentUser.updateEmail(email);
+    }
+
+    await firebase
+      .firestore()
+      .collection('users')
+      .doc(user.uid)
+      .update({ name, sex, birthDate, weight, height, email });
+
+    Alert.alert('Success', 'Your profile was edited');
+
+    if (callback) {
+      callback();
+    }
+  } catch (e) {
+    Alert.alert('Error', e.message);
+  } finally {
+    dispatch(setLoadingStatus(false));
+  }
+};
+
 export const getUserState = () => async (dispatch) => {
   firebase.auth().onAuthStateChanged(async (user) => {
     setLoadingStatus(true);

@@ -10,7 +10,7 @@ import { signOut } from '../../store/actions/sessionActions';
 import { Button, Wrapper, DataEntry } from '../../shared';
 import { parseSexFromIndex, parseAgeFromDateString } from '../../utils/tools';
 
-const ProfileView = ({ eva }) => {
+const ProfileView = ({ eva, navigation }) => {
   const dispatch = useDispatch();
   const { user, isLoading } = useSelector((state) => state.session);
 
@@ -89,6 +89,14 @@ const ProfileView = ({ eva }) => {
             </View>
           </View>
           <Button
+            style={eva.style.editButton}
+            testID="ProfileView.EditProfileButton"
+            onPress={() => navigation.navigate('EditProfile')}
+            disabled={isLoading}
+          >
+            Edit
+          </Button>
+          <Button
             testID="ProfileView.SignOutButton"
             onPress={() =>
               dispatch(
@@ -110,6 +118,7 @@ const ProfileView = ({ eva }) => {
 
 ProfileView.propTypes = {
   eva: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired,
 };
 
 export default withStyles(ProfileView, (theme) => ({
@@ -140,6 +149,9 @@ export default withStyles(ProfileView, (theme) => ({
     fontSize: 66,
   },
   profileData: {
+    marginBottom: 20,
+  },
+  editButton: {
     marginBottom: 20,
   },
   dataRow: {

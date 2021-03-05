@@ -7,3 +7,4 @@ export { default as HistoryView } from './HistoryView';
 export { default as ProfileView } from './ProfileView';
 export { default as DiagnosisView } from './DiagnosisView';
 export { default as DetailsView } from './DetailsView';
+export { default as EditProfileView } from './EditProfileView';
