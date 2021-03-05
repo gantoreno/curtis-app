@@ -4,7 +4,12 @@ import { withStyles } from '@ui-kitten/components';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeNavigator from '../HomeNavigator';
-import { DiagnosisView, DetailsView, EditProfileView } from '../../views';
+import {
+  DiagnosisView,
+  DetailsView,
+  EditProfileView,
+  UpdatePasswordView,
+} from '../../views';
 
 const AppNavigator = ({ eva }) => {
   const { Navigator, Screen } = createStackNavigator();
@@ -25,6 +30,7 @@ const AppNavigator = ({ eva }) => {
       <Screen name="Details" component={DetailsView} />
       <Screen name="Diagnosis" component={DiagnosisView} />
       <Screen name="EditProfile" component={EditProfileView} />
+      <Screen name="UpdatePassword" component={UpdatePasswordView} />
     </Navigator>
   );
 };

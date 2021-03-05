@@ -1,13 +1,55 @@
 import React, { useState } from 'react';
+import Dialog from 'react-native-dialog';
 import PropTypes from 'prop-types';
 import { StatusBar } from 'expo-status-bar';
 import { useSelector, useDispatch } from 'react-redux';
 import { Text, Icon, Input, withStyles } from '@ui-kitten/components';
 import { View, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
 
-import { signIn } from '../../store/actions/sessionActions';
+import { signIn, resetPassword } from '../../store/actions/sessionActions';
 import { Button, Wrapper, FormLabel } from '../../shared';
 import { validateEmail, validatePassword } from '../../utils/validation';
+
+const PasswordResetDialog = ({
+  visible,
+  value,
+  onChangeText,
+  onAccept,
+  onCancel,
+  disabled,
+}) => (
+  <View>
+    <Dialog.Container visible={visible}>
+      <Dialog.Title>Password Reset E-mail</Dialog.Title>
+      <Dialog.Description>
+        Please provide the e-mail associated with your account, if it&apos;s
+        valid, you&apos;ll receive a password reset link.
+      </Dialog.Description>
+      <Dialog.Input
+        value={value}
+        placeholder="email@example.com"
+        onChangeText={onChangeText}
+        keyboardType="email-address"
+        autoCapitalize="none"
+      />
+      <Dialog.Button label="Cancel" onPress={() => onCancel()} />
+      <Dialog.Button
+        label="Send"
+        onPress={() => onAccept()}
+        disabled={disabled}
+      />
+    </Dialog.Container>
+  </View>
+);
+
+PasswordResetDialog.propTypes = {
+  visible: PropTypes.bool.isRequired,
+  value: PropTypes.string.isRequired,
+  onChangeText: PropTypes.func.isRequired,
+  onAccept: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
+  disabled: PropTypes.bool.isRequired,
+};
 
 const SignInView = ({ eva, navigation }) => {
   const dispatch = useDispatch();
@@ -16,6 +58,9 @@ const SignInView = ({ eva, navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSecureTextEntry, setIsSecureTextEntry] = useState(true);
+
+  const [isVisible, setIsVisible] = useState(false);
+  const [confirmationEmail, setConfirmationEmail] = useState('');
 
   const validateFields = () =>
     validateEmail(email) && validatePassword(password);
@@ -27,6 +72,28 @@ const SignInView = ({ eva, navigation }) => {
         backgroundColor={eva.theme['color-basic-100']}
       />
       <Wrapper style={eva.style.wrapper} centered>
+        <PasswordResetDialog
+          value={confirmationEmail}
+          visible={isVisible}
+          onChangeText={(newConfirmationEmail) =>
+            setConfirmationEmail(
+              newConfirmationEmail.replaceAll(/\s/g, '').replaceAll(/\t/g, '')
+            )
+          }
+          onAccept={() =>
+            dispatch(
+              resetPassword(confirmationEmail, () => {
+                setIsVisible(false);
+                setConfirmationEmail('');
+              })
+            )
+          }
+          onCancel={() => {
+            setIsVisible(false);
+            setConfirmationEmail('');
+          }}
+          disabled={isLoading || !validateEmail(confirmationEmail)}
+        />
         <Text style={eva.style.title} category="h1">
           Sign in to{'\n'}your{' '}
           <Text status="primary" category="h1">
@@ -49,6 +116,7 @@ const SignInView = ({ eva, navigation }) => {
           <Input
             size="large"
             value={password}
+            style={eva.style.input}
             label={() => <FormLabel title="Password" />}
             testID="SignInView.Input-password"
             disabled={isLoading}
@@ -63,6 +131,15 @@ const SignInView = ({ eva, navigation }) => {
             autoCapitalize="none"
             secureTextEntry={isSecureTextEntry}
           />
+          <TouchableWithoutFeedback>
+            <Text
+              style={eva.style.passwordResetLink}
+              status="primary"
+              onPress={() => setIsVisible(true)}
+            >
+              Forgot your password?
+            </Text>
+          </TouchableWithoutFeedback>
         </View>
         <Button
           style={eva.style.button}
@@ -118,6 +195,10 @@ export default withStyles(SignInView, () => ({
     fontSize: 14,
     textAlign: 'center',
     marginBottom: 20,
+  },
+  passwordResetLink: {
+    textAlign: 'right',
+    fontWeight: 'bold',
   },
   alternative: {
     fontWeight: 'bold',

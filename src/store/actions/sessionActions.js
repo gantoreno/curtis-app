@@ -149,6 +149,16 @@ export const editUser = (
     const { user } = await getState().session;
 
     if (email !== user.email) {
+      const snapshot = await firebase
+        .firestore()
+        .collection('users')
+        .where('email', '==', email)
+        .get();
+
+      if (!snapshot.empty) {
+        throw new Error("The e-mail you're trying to use is already taken.");
+      }
+
       await firebase.auth().currentUser.updateEmail(email);
     }
 
@@ -159,6 +169,47 @@ export const editUser = (
       .update({ name, sex, birthDate, weight, height, email });
 
     Alert.alert('Success', 'Your profile was edited');
+
+    if (callback) {
+      callback();
+    }
+  } catch (e) {
+    Alert.alert('Error', e.message);
+  } finally {
+    dispatch(setLoadingStatus(false));
+  }
+};
+
+export const updatePassword = (password, newPassword, callback) => async (
+  dispatch
+) => {
+  dispatch(setLoadingStatus(true));
+
+  try {
+    const user = firebase.auth().currentUser;
+
+    await user.reauthenticateWithCredential(
+      firebase.auth.EmailAuthProvider.credential(user.email, password)
+    );
+    await user.updatePassword(newPassword);
+
+    Alert.alert('Success', 'Your password was updated');
+
+    if (callback) {
+      callback();
+    }
+  } catch (e) {
+    Alert.alert('Error', e.message);
+  } finally {
+    dispatch(setLoadingStatus(false));
+  }
+};
+
+export const resetPassword = (email, callback) => async (dispatch) => {
+  dispatch(setLoadingStatus(true));
+
+  try {
+    await firebase.auth().sendPasswordResetEmail(email);
 
     if (callback) {
       callback();
@@ -283,7 +334,7 @@ export const checkForEmail = (email, callback) => async (dispatch) => {
       .where('email', '==', email)
       .get();
 
-    if (snapshot.empty) {
+    if (!snapshot.empty) {
       Alert.alert('E-mail already taken', 'Please sign in instead');
 
       return;

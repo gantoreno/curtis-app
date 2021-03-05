@@ -163,6 +163,7 @@ const EditProfileView = ({ eva, navigation }) => {
           <Button
             style={eva.style.button}
             testID="EditProfileView.UpdatePasswordButton"
+            onPress={() => navigation.navigate('UpdatePassword')}
             appearance="outline"
           >
             Update password

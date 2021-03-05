@@ -8,3 +8,4 @@ export { default as ProfileView } from './ProfileView';
 export { default as DiagnosisView } from './DiagnosisView';
 export { default as DetailsView } from './DetailsView';
 export { default as EditProfileView } from './EditProfileView';
+export { default as UpdatePasswordView } from './UpdatePasswordView';

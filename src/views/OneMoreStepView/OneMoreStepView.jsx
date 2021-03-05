@@ -114,15 +114,15 @@ const OneMoreStepView = ({ eva, route }) => {
           testID="OneMoreStepView.SignUpButton"
           onPress={() =>
             dispatch(
-              signUp({
+              signUp(
                 name,
                 email,
                 password,
-                sex: sex.row,
-                birthDate: parseCustomDateString(birthDate),
+                sex.row,
+                parseCustomDateString(birthDate),
                 weight,
-                height,
-              })
+                height
+              )
             )
           }
           disabled={!validateFields() || isLoading}
