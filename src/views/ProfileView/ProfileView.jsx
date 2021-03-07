@@ -4,9 +4,10 @@ import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import { Text, withStyles } from '@ui-kitten/components';
 import { useSelector, useDispatch } from 'react-redux';
-import { View, Alert, ScrollView, SafeAreaView } from 'react-native';
+import { View, Alert, Platform, ScrollView, SafeAreaView } from 'react-native';
 
 import { signOut } from '../../store/actions/sessionActions';
+import { expo as app } from '../../../app.json';
 import { Button, Wrapper, DataEntry } from '../../shared';
 import { parseSexFromIndex, parseAgeFromDateString } from '../../utils/tools';
 
@@ -97,6 +98,7 @@ const ProfileView = ({ eva, navigation }) => {
             Edit
           </Button>
           <Button
+            style={eva.style.editButton}
             testID="ProfileView.SignOutButton"
             onPress={() =>
               dispatch(
@@ -110,6 +112,11 @@ const ProfileView = ({ eva, navigation }) => {
           >
             Sign out
           </Button>
+          <Text style={eva.style.hint} appearance="hint">
+            Gabriel Moreno &copy; {new Date().getFullYear()}
+            {'\n'}
+            Curtis for {Platform.OS} v{app.version}
+          </Text>
         </Wrapper>
       </ScrollView>
     </SafeAreaView>
@@ -157,5 +164,8 @@ export default withStyles(ProfileView, (theme) => ({
   dataRow: {
     marginBottom: 20,
     flexDirection: 'row',
+  },
+  hint: {
+    textAlign: 'center',
   },
 }));
