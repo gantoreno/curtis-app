@@ -56,23 +56,23 @@ describe('SignUpView', () => {
     );
 
     wrapper
-      .findWhere((node) => node.prop('testID') === 'SignUpView.Input-name')
+      .findWhere((node) => node.prop('testID') === 'SignUpView.NameInput')
       .first()
       .props()
       .onChangeText('Test user');
     wrapper
-      .findWhere((node) => node.prop('testID') === 'SignUpView.Input-email')
+      .findWhere((node) => node.prop('testID') === 'SignUpView.EmailInput')
       .first()
       .props()
       .onChangeText('user@test.com');
     wrapper
-      .findWhere((node) => node.prop('testID') === 'SignUpView.Input-password')
+      .findWhere((node) => node.prop('testID') === 'SignUpView.PasswordInput')
       .first()
       .props()
       .onChangeText('TestPassword123.');
     wrapper
       .findWhere(
-        (node) => node.prop('testID') === 'SignUpView.Input-passwordRepeat'
+        (node) => node.prop('testID') === 'SignUpView.PasswordRepeatInput'
       )
       .first()
       .props()

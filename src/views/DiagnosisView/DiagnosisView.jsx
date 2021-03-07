@@ -138,7 +138,7 @@ const DiagnosisView = ({ eva, route, navigation }) => {
                     style={eva.style.input}
                     label={() => <FormLabel title="Name" />}
                     value={name}
-                    testID="DiagnosisView.Input-name"
+                    testID="DiagnosisView.NameInput"
                     disabled={isLoading}
                     autoCapitalize="words"
                     onChangeText={(newName) => setName(newName)}
@@ -150,7 +150,7 @@ const DiagnosisView = ({ eva, route, navigation }) => {
                     style={eva.style.input}
                     label={() => <FormLabel title="Sex" required />}
                     value={parseSexFromIndex(sex.row)}
-                    testID="DiagnosisView.Input-sex"
+                    testID="DiagnosisView.SexInput"
                     disabled={isLoading}
                     onSelect={(newSex) => setSex(newSex)}
                     selectedIndex={sex}
@@ -166,7 +166,7 @@ const DiagnosisView = ({ eva, route, navigation }) => {
                     date={birthDate}
                     style={eva.style.input}
                     label={() => <FormLabel title="Birth date" required />}
-                    testID="DiagnosisView.Input-birthDate"
+                    testID="DiagnosisView.BirthDateInput"
                     disabled={isLoading}
                     onSelect={(newBirthDate) => setBirthDate(newBirthDate)}
                   />
@@ -179,7 +179,7 @@ const DiagnosisView = ({ eva, route, navigation }) => {
                     label={() => (
                       <FormLabel unit="kg" title="Weight" required />
                     )}
-                    testID="DiagnosisView.Input-weight"
+                    testID="DiagnosisView.WeightInput"
                     disabled={isLoading}
                     keyboardType="numeric"
                     onChangeText={(newWeight) => setWeight(newWeight)}
@@ -193,7 +193,7 @@ const DiagnosisView = ({ eva, route, navigation }) => {
                     label={() => (
                       <FormLabel unit="cm" title="Height" required />
                     )}
-                    testID="DiagnosisView.Input-height"
+                    testID="DiagnosisView.HeightInput"
                     disabled={isLoading}
                     keyboardType="numeric"
                     onChangeText={(newHeight) => setHeight(newHeight)}
@@ -207,7 +207,7 @@ const DiagnosisView = ({ eva, route, navigation }) => {
                 value={HR}
                 style={eva.style.halfWidthInput}
                 label={() => <FormLabel unit="bpm" title="HR" required />}
-                testID="DiagnosisView.Input-HR"
+                testID="DiagnosisView.HRInput"
                 caption="Heart rate"
                 disabled={isLoading}
                 captionIcon={(props) => (
@@ -221,7 +221,7 @@ const DiagnosisView = ({ eva, route, navigation }) => {
                 value={Pd}
                 style={eva.style.halfWidthInput}
                 label={() => <FormLabel unit="mmHg" title="Pd" required />}
-                testID="DiagnosisView.Input-Pd"
+                testID="DiagnosisView.PdInput"
                 caption="Distal coronary pressure"
                 disabled={isLoading}
                 captionIcon={(props) => (
@@ -237,7 +237,7 @@ const DiagnosisView = ({ eva, route, navigation }) => {
                 value={PQ}
                 style={eva.style.halfWidthInput}
                 label={() => <FormLabel unit="ms" title="PQ" required />}
-                testID="DiagnosisView.Input-PQ"
+                testID="DiagnosisView.PQInput"
                 caption="PQ interval"
                 disabled={isLoading}
                 captionIcon={(props) => (
@@ -251,7 +251,7 @@ const DiagnosisView = ({ eva, route, navigation }) => {
                 value={QRS}
                 style={eva.style.halfWidthInput}
                 label={() => <FormLabel unit="ms" title="QRS" required />}
-                testID="DiagnosisView.Input-QRS"
+                testID="DiagnosisView.QRSInput"
                 caption="QRS interval"
                 disabled={isLoading}
                 captionIcon={(props) => (
@@ -267,7 +267,7 @@ const DiagnosisView = ({ eva, route, navigation }) => {
                 value={QT}
                 style={eva.style.halfWidthInput}
                 label={() => <FormLabel unit="ms" title="QT" required />}
-                testID="DiagnosisView.Input-QT"
+                testID="DiagnosisView.QTInput"
                 caption="QT interval"
                 disabled={isLoading}
                 captionIcon={(props) => (
@@ -281,7 +281,7 @@ const DiagnosisView = ({ eva, route, navigation }) => {
                 value={QTcFra}
                 style={eva.style.halfWidthInput}
                 label={() => <FormLabel unit="ms" title="QTcFra" />}
-                testID="DiagnosisView.Input-QTcFra"
+                testID="DiagnosisView.QTcFraInput"
                 caption="Framingham's corrected QT"
                 disabled={isLoading}
                 captionIcon={(props) => (

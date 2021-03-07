@@ -49,7 +49,7 @@ const SignUpView = ({ eva, navigation }) => {
             size="large"
             value={name}
             style={eva.style.input}
-            testID="SignUpView.Input-name"
+            testID="SignUpView.NameInput"
             label={() => <FormLabel title="Name" required />}
             onChangeText={(newName) => setName(newName)}
             autoCapitalize="words"
@@ -58,7 +58,7 @@ const SignUpView = ({ eva, navigation }) => {
             size="large"
             value={email}
             style={eva.style.input}
-            testID="SignUpView.Input-email"
+            testID="SignUpView.EmailInput"
             label={() => <FormLabel title="E-mail" required />}
             keyboardType="email-address"
             onChangeText={(newEmail) => setEmail(newEmail)}
@@ -70,7 +70,7 @@ const SignUpView = ({ eva, navigation }) => {
             value={password}
             style={eva.style.input}
             label={() => <FormLabel title="Password" required />}
-            testID="SignUpView.Input-password"
+            testID="SignUpView.PasswordInput"
             onChangeText={(newPassword) => setPassword(newPassword)}
             accessoryRight={({ ...rest }) => (
               <TouchableWithoutFeedback
@@ -88,7 +88,7 @@ const SignUpView = ({ eva, navigation }) => {
             value={passwordRepeat}
             style={eva.style.input}
             label={() => <FormLabel title="Repeat password" required />}
-            testID="SignUpView.Input-passwordRepeat"
+            testID="SignUpView.PasswordRepeatInput"
             onChangeText={(newPasswordRepeat) =>
               setPasswordRepeat(newPasswordRepeat)
             }

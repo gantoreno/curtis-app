@@ -37,14 +37,14 @@ const DetailsView = ({ eva, navigation, route }) => {
               <DataEntry
                 label="Type"
                 value={() => <Tag isExternal={result.isExternal} />}
-                testID="DetailsView.DataEntry-type"
+                testID="DetailsView.TypeDataEntry"
               />
             </View>
             <View style={eva.style.dataRow}>
               <DataEntry
                 label="Date"
                 value={result.date}
-                testID="DetailsView.DataEntry-date"
+                testID="DetailsView.DateDataEntry"
               />
             </View>
             {result.isExternal && (
@@ -53,14 +53,14 @@ const DetailsView = ({ eva, navigation, route }) => {
                   <DataEntry
                     label="Name"
                     value={result.name || 'N/A'}
-                    testID="DetailsView.DataEntry-name"
+                    testID="DetailsView.NameDataEntry"
                     halfWidth
                   />
                   <DataEntry
                     unit="years"
                     label="Age"
                     value={parseAgeFromDateString(result.birthDate)}
-                    testID="DetailsView.DataEntry-age"
+                    testID="DetailsView.AgeDataEntry"
                     halfWidth
                   />
                 </View>
@@ -69,14 +69,14 @@ const DetailsView = ({ eva, navigation, route }) => {
                     unit="kg"
                     label="Weight"
                     value={result.weight}
-                    testID="DetailsView.DataEntry-weight"
+                    testID="DetailsView.WeightDataEntry"
                     halfWidth
                   />
                   <DataEntry
                     unit="cm"
                     label="Height"
                     value={result.height}
-                    testID="DetailsView.DataEntry-height"
+                    testID="DetailsView.HeightDataEntry"
                     halfWidth
                   />
                 </View>
@@ -84,13 +84,13 @@ const DetailsView = ({ eva, navigation, route }) => {
                   <DataEntry
                     label="Sex"
                     value={parseSexFromIndex(result.sex)}
-                    testID="DetailsView.DataEntry-sex"
+                    testID="DetailsView.SexDataEntry"
                     halfWidth
                   />
                   <DataEntry
                     label="Birth date"
                     value={result.birthDate}
-                    testID="DetailsView.DataEntry-birthDate"
+                    testID="DetailsView.BirthDateDataEntry"
                     halfWidth
                   />
                 </View>
@@ -101,14 +101,14 @@ const DetailsView = ({ eva, navigation, route }) => {
                 unit="bpm"
                 label="HR"
                 value={result.HR}
-                testID="DetailsView.DataEntry-HR"
+                testID="DetailsView.HRDataEntry"
                 halfWidth
               />
               <DataEntry
                 unit="mmHg"
                 label="Pd"
                 value={result.Pd}
-                testID="DetailsView.DataEntry-Pd"
+                testID="DetailsView.PdDataEntry"
                 halfWidth
               />
             </View>
@@ -117,14 +117,14 @@ const DetailsView = ({ eva, navigation, route }) => {
                 unit="ms"
                 label="PQ"
                 value={result.PQ}
-                testID="DetailsView.DataEntry-PQ"
+                testID="DetailsView.PQDataEntry"
                 halfWidth
               />
               <DataEntry
                 unit="ms"
                 label="QRS"
                 value={result.QRS}
-                testID="DetailsView.DataEntry-QRS"
+                testID="DetailsView.QRSDataEntry"
                 halfWidth
               />
             </View>
@@ -133,14 +133,14 @@ const DetailsView = ({ eva, navigation, route }) => {
                 unit="ms"
                 label="QT"
                 value={result.QT}
-                testID="DetailsView.DataEntry-QT"
+                testID="DetailsView.QTDataEntry"
                 halfWidth
               />
               <DataEntry
                 unit="ms"
                 label="QTcFra"
                 value={result.QTcFra}
-                testID="DetailsView.DataEntry-QTcFra"
+                testID="DetailsView.QTcFraDataEntry"
                 halfWidth
               />
             </View>
@@ -148,7 +148,7 @@ const DetailsView = ({ eva, navigation, route }) => {
               <DataEntry
                 label="Diagnosis"
                 value={result.diagnosis}
-                testID="DetailsView.DataEntry-diagnosis"
+                testID="DetailsView.diagnosisDataEntry"
               />
             </View>
           </View>

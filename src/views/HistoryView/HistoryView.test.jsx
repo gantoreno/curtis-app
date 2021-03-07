@@ -68,9 +68,7 @@ describe('HistoryView', () => {
 
     expect(
       wrapper
-        .findWhere(
-          (node) => node.prop('testID') === 'HistoryView.HistoryCard-0'
-        )
+        .findWhere((node) => node.prop('testID') === 'HistoryView.HistoryCard')
         .first()
     ).toBeDefined();
   });
@@ -83,7 +81,7 @@ describe('HistoryView', () => {
     );
 
     wrapper
-      .findWhere((node) => node.prop('testID') === 'HistoryView.HistoryCard-0')
+      .findWhere((node) => node.prop('testID') === 'HistoryView.HistoryCard')
       .find('Button')
       .first()
       .simulate('click');

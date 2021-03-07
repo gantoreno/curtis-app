@@ -59,7 +59,7 @@ const OneMoreStepView = ({ eva, route }) => {
             style={eva.style.input}
             label={() => <FormLabel title="Sex" required />}
             value={parseSexFromIndex(sex.row)}
-            testID="OneMoreStepView.Input-sex"
+            testID="OneMoreStepView.SexInput"
             onSelect={(newSex) => setSex(newSex)}
             disabled={isLoading}
             selectedIndex={sex}
@@ -73,7 +73,7 @@ const OneMoreStepView = ({ eva, route }) => {
             date={birthDate}
             style={eva.style.input}
             label={() => <FormLabel title="Birth date" required />}
-            testID="OneMoreStepView.Input-birthDate"
+            testID="OneMoreStepView.BirthDateInput"
             disabled={isLoading}
             onSelect={(newBirthDate) => setBirthDate(newBirthDate)}
           />
@@ -82,7 +82,7 @@ const OneMoreStepView = ({ eva, route }) => {
             value={weight}
             style={eva.style.input}
             label={() => <FormLabel unit="kg" title="Weight" required />}
-            testID="OneMoreStepView.Input-weight"
+            testID="OneMoreStepView.WeightInput"
             disabled={isLoading}
             keyboardType="numeric"
             onChangeText={(newWeight) => setWeight(newWeight)}
@@ -92,7 +92,7 @@ const OneMoreStepView = ({ eva, route }) => {
             value={height}
             style={eva.style.input}
             label={() => <FormLabel unit="cm" title="Height" required />}
-            testID="OneMoreStepView.Input-height"
+            testID="OneMoreStepView.HeightInput"
             disabled={isLoading}
             keyboardType="numeric"
             onChangeText={(newHeight) => setHeight(newHeight)}

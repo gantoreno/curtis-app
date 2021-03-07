@@ -56,12 +56,12 @@ describe('SignInView', () => {
     );
 
     wrapper
-      .findWhere((node) => node.prop('testID') === 'SignInView.Input-email')
+      .findWhere((node) => node.prop('testID') === 'SignInView.EmailInput')
       .first()
       .props()
       .onChangeText('user@test.com');
     wrapper
-      .findWhere((node) => node.prop('testID') === 'SignInView.Input-password')
+      .findWhere((node) => node.prop('testID') === 'SignInView.PasswordInput')
       .first()
       .props()
       .onChangeText('TestPassword123.');

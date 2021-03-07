@@ -40,14 +40,14 @@ const ProfileView = ({ eva, navigation }) => {
               <DataEntry
                 label="Name"
                 value={user.name}
-                testID="ProfileView.DataEntry-name"
+                testID="ProfileView.NameDataEntry"
                 halfWidth
               />
               <DataEntry
                 unit="years"
                 label="Age"
                 value={parseAgeFromDateString(user.birthDate)}
-                testID="ProfileView.DataEntry-age"
+                testID="ProfileView.AgeDataEntry"
                 halfWidth
               />
             </View>
@@ -56,14 +56,14 @@ const ProfileView = ({ eva, navigation }) => {
                 unit="kg"
                 label="Weight"
                 value={user.weight}
-                testID="ProfileView.DataEntry-weight"
+                testID="ProfileView.WeightDataEntry"
                 halfWidth
               />
               <DataEntry
                 unit="cm"
                 label="Height"
                 value={user.height}
-                testID="ProfileView.DataEntry-height"
+                testID="ProfileView.HeightDataEntry"
                 halfWidth
               />
             </View>
@@ -71,13 +71,13 @@ const ProfileView = ({ eva, navigation }) => {
               <DataEntry
                 label="Sex"
                 value={parseSexFromIndex(user.sex)}
-                testID="ProfileView.DataEntry-sex"
+                testID="ProfileView.SexDataEntry"
                 halfWidth
               />
               <DataEntry
                 label="Birth date"
                 value={user.birthDate}
-                testID="ProfileView.DataEntry-birthDate"
+                testID="ProfileView.BirthDateDataEntry"
                 halfWidth
               />
             </View>
@@ -85,7 +85,7 @@ const ProfileView = ({ eva, navigation }) => {
               <DataEntry
                 label="E-mail"
                 value={user.email}
-                testID="ProfileView.DataEntry-email"
+                testID="ProfileView.EmailDataEntry"
               />
             </View>
           </View>

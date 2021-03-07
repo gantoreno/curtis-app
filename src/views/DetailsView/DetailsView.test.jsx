@@ -89,23 +89,21 @@ describe('DetailsView', () => {
     expect(
       wrapper
         .findWhere(
-          (node) => node.prop('testID') === 'DetailsView.DataEntry-name'
+          (node) => node.prop('testID') === 'DetailsView.NameDataEntry'
         )
         .first()
         .text()
     ).toMatch(/test user/i);
     expect(
       wrapper
-        .findWhere(
-          (node) => node.prop('testID') === 'DetailsView.DataEntry-sex'
-        )
+        .findWhere((node) => node.prop('testID') === 'DetailsView.SexDataEntry')
         .first()
         .text()
     ).toMatch(/male/i);
     expect(
       wrapper
         .findWhere(
-          (node) => node.prop('testID') === 'DetailsView.DataEntry-weight'
+          (node) => node.prop('testID') === 'DetailsView.WeightDataEntry'
         )
         .first()
         .text()
@@ -113,7 +111,7 @@ describe('DetailsView', () => {
     expect(
       wrapper
         .findWhere(
-          (node) => node.prop('testID') === 'DetailsView.DataEntry-height'
+          (node) => node.prop('testID') === 'DetailsView.HeightDataEntry'
         )
         .first()
         .text()
@@ -121,47 +119,45 @@ describe('DetailsView', () => {
     expect(
       wrapper
         .findWhere(
-          (node) => node.prop('testID') === 'DetailsView.DataEntry-birthDate'
+          (node) => node.prop('testID') === 'DetailsView.BirthDateDataEntry'
         )
         .first()
         .text()
     ).toMatch(/jan 1, 2000/i);
     expect(
       wrapper
-        .findWhere((node) => node.prop('testID') === 'DetailsView.DataEntry-HR')
+        .findWhere((node) => node.prop('testID') === 'DetailsView.HRDataEntry')
         .first()
         .text()
     ).toMatch(/133/i);
     expect(
       wrapper
-        .findWhere((node) => node.prop('testID') === 'DetailsView.DataEntry-Pd')
+        .findWhere((node) => node.prop('testID') === 'DetailsView.PdDataEntry')
         .first()
         .text()
     ).toMatch(/80/i);
     expect(
       wrapper
-        .findWhere((node) => node.prop('testID') === 'DetailsView.DataEntry-PQ')
+        .findWhere((node) => node.prop('testID') === 'DetailsView.PQDataEntry')
         .first()
         .text()
     ).toMatch(/96/i);
     expect(
       wrapper
-        .findWhere(
-          (node) => node.prop('testID') === 'DetailsView.DataEntry-QRS'
-        )
+        .findWhere((node) => node.prop('testID') === 'DetailsView.QRSDataEntry')
         .first()
         .text()
     ).toMatch(/102/i);
     expect(
       wrapper
-        .findWhere((node) => node.prop('testID') === 'DetailsView.DataEntry-QT')
+        .findWhere((node) => node.prop('testID') === 'DetailsView.QTDataEntry')
         .first()
         .text()
     ).toMatch(/304/i);
     expect(
       wrapper
         .findWhere(
-          (node) => node.prop('testID') === 'DetailsView.DataEntry-QTcFra'
+          (node) => node.prop('testID') === 'DetailsView.QTcFraDataEntry'
         )
         .first()
         .text()

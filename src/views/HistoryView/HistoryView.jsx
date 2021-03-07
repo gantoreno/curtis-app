@@ -121,7 +121,7 @@ const HistoryView = ({ eva, navigation }) => {
                   key={i}
                   color={color}
                   result={result}
-                  testID={`HistoryView.HistoryCard-${i}`}
+                  testID="HistoryView.HistoryCard"
                   onPress={() => navigation.navigate('Details', { result })}
                   isSuccess={isSuccess}
                   borderColor={borderColor}

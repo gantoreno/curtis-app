@@ -54,23 +54,21 @@ describe('EditProfileView', () => {
     expect(
       wrapper
         .findWhere(
-          (node) => node.prop('testID') === 'EditProfileView.Input-name'
+          (node) => node.prop('testID') === 'EditProfileView.NameInput'
         )
         .first()
         .prop('value')
     ).toBe(mockState.session.user.name);
     expect(
       wrapper
-        .findWhere(
-          (node) => node.prop('testID') === 'EditProfileView.Input-sex'
-        )
+        .findWhere((node) => node.prop('testID') === 'EditProfileView.SexInput')
         .first()
         .prop('selectedIndex').row
     ).toBe(mockState.session.user.sex);
     expect(
       wrapper
         .findWhere(
-          (node) => node.prop('testID') === 'EditProfileView.Input-birthDate'
+          (node) => node.prop('testID') === 'EditProfileView.BirthDateInput'
         )
         .first()
         .prop('date')
@@ -78,7 +76,7 @@ describe('EditProfileView', () => {
     expect(
       wrapper
         .findWhere(
-          (node) => node.prop('testID') === 'EditProfileView.Input-weight'
+          (node) => node.prop('testID') === 'EditProfileView.WeightInput'
         )
         .first()
         .prop('value')
@@ -86,7 +84,7 @@ describe('EditProfileView', () => {
     expect(
       wrapper
         .findWhere(
-          (node) => node.prop('testID') === 'EditProfileView.Input-height'
+          (node) => node.prop('testID') === 'EditProfileView.HeightInput'
         )
         .first()
         .prop('value')
@@ -94,7 +92,7 @@ describe('EditProfileView', () => {
     expect(
       wrapper
         .findWhere(
-          (node) => node.prop('testID') === 'EditProfileView.Input-email'
+          (node) => node.prop('testID') === 'EditProfileView.EmailInput'
         )
         .first()
         .prop('value')
@@ -126,7 +124,7 @@ describe('EditProfileView', () => {
     );
 
     wrapper
-      .findWhere((node) => node.prop('testID') === 'EditProfileView.Input-name')
+      .findWhere((node) => node.prop('testID') === 'EditProfileView.NameInput')
       .first()
       .props()
       .onChangeText('');

@@ -107,7 +107,7 @@ const SignInView = ({ eva, navigation }) => {
             value={email}
             style={eva.style.input}
             label={() => <FormLabel title="E-mail" />}
-            testID="SignInView.Input-email"
+            testID="SignInView.EmailInput"
             disabled={isLoading}
             keyboardType="email-address"
             onChangeText={(newEmail) => setEmail(newEmail)}
@@ -118,7 +118,7 @@ const SignInView = ({ eva, navigation }) => {
             value={password}
             style={eva.style.input}
             label={() => <FormLabel title="Password" />}
-            testID="SignInView.Input-password"
+            testID="SignInView.PasswordInput"
             disabled={isLoading}
             onChangeText={(newPassword) => setPassword(newPassword)}
             accessoryRight={({ ...rest }) => (

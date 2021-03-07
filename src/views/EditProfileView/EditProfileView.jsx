@@ -66,7 +66,7 @@ const EditProfileView = ({ eva, navigation }) => {
                 value={name}
                 style={eva.style.input}
                 label={() => <FormLabel title="Name" required />}
-                testID="EditProfileView.Input-name"
+                testID="EditProfileView.NameInput"
                 disabled={isLoading}
                 keyboardType="email-address"
                 onChangeText={(newName) => setName(newName)}
@@ -79,7 +79,7 @@ const EditProfileView = ({ eva, navigation }) => {
                 style={eva.style.input}
                 label={() => <FormLabel title="Sex" required />}
                 value={parseSexFromIndex(sex.row)}
-                testID="EditProfileView.Input-sex"
+                testID="EditProfileView.SexInput"
                 disabled={isLoading}
                 onSelect={(newSex) => setSex(newSex)}
                 selectedIndex={sex}
@@ -95,7 +95,7 @@ const EditProfileView = ({ eva, navigation }) => {
                 date={birthDate}
                 style={eva.style.input}
                 label={() => <FormLabel title="Birth date" required />}
-                testID="EditProfileView.Input-birthDate"
+                testID="EditProfileView.BirthDateInput"
                 disabled={isLoading}
                 onSelect={(newBirthDate) => setBirthDate(newBirthDate)}
               />
@@ -106,7 +106,7 @@ const EditProfileView = ({ eva, navigation }) => {
                 value={weight}
                 style={eva.style.input}
                 label={() => <FormLabel unit="kg" title="Weight" required />}
-                testID="EditProfileView.Input-weight"
+                testID="EditProfileView.WeightInput"
                 disabled={isLoading}
                 keyboardType="numeric"
                 onChangeText={(newWeight) => setWeight(newWeight)}
@@ -118,7 +118,7 @@ const EditProfileView = ({ eva, navigation }) => {
                 value={height}
                 style={eva.style.input}
                 label={() => <FormLabel unit="cm" title="Height" required />}
-                testID="EditProfileView.Input-height"
+                testID="EditProfileView.HeightInput"
                 disabled={isLoading}
                 keyboardType="numeric"
                 onChangeText={(newHeight) => setHeight(newHeight)}
@@ -130,7 +130,7 @@ const EditProfileView = ({ eva, navigation }) => {
                 value={email}
                 style={eva.style.input}
                 label={() => <FormLabel title="Email" required />}
-                testID="EditProfileView.Input-email"
+                testID="EditProfileView.EmailInput"
                 disabled={isLoading}
                 keyboardType="email-address"
                 onChangeText={(newEmail) => setEmail(newEmail)}

@@ -71,14 +71,14 @@ describe('UpdatePasswordView', () => {
 
     wrapper
       .findWhere(
-        (node) => node.prop('testID') === 'UpdatePasswordView.Input-password'
+        (node) => node.prop('testID') === 'UpdatePasswordView.PasswordInput'
       )
       .first()
       .props()
       .onChangeText('Test123123.');
     wrapper
       .findWhere(
-        (node) => node.prop('testID') === 'UpdatePasswordView.Input-newPassword'
+        (node) => node.prop('testID') === 'UpdatePasswordView.NewPasswordInput'
       )
       .first()
       .props()
@@ -86,7 +86,7 @@ describe('UpdatePasswordView', () => {
     wrapper
       .findWhere(
         (node) =>
-          node.prop('testID') === 'UpdatePasswordView.Input-newPasswordRepeat'
+          node.prop('testID') === 'UpdatePasswordView.NewPasswordRepeatInput'
       )
       .first()
       .props()

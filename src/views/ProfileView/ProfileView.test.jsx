@@ -54,23 +54,21 @@ describe('ProfileView', () => {
     expect(
       wrapper
         .findWhere(
-          (node) => node.prop('testID') === 'ProfileView.DataEntry-name'
+          (node) => node.prop('testID') === 'ProfileView.NameDataEntry'
         )
         .first()
         .text()
     ).toMatch(/test user/i);
     expect(
       wrapper
-        .findWhere(
-          (node) => node.prop('testID') === 'ProfileView.DataEntry-age'
-        )
+        .findWhere((node) => node.prop('testID') === 'ProfileView.AgeDataEntry')
         .first()
         .text()
     ).toMatch(/21/i);
     expect(
       wrapper
         .findWhere(
-          (node) => node.prop('testID') === 'ProfileView.DataEntry-weight'
+          (node) => node.prop('testID') === 'ProfileView.WeightDataEntry'
         )
         .first()
         .text()
@@ -78,7 +76,7 @@ describe('ProfileView', () => {
     expect(
       wrapper
         .findWhere(
-          (node) => node.prop('testID') === 'ProfileView.DataEntry-height'
+          (node) => node.prop('testID') === 'ProfileView.HeightDataEntry'
         )
         .first()
         .text()
@@ -86,7 +84,7 @@ describe('ProfileView', () => {
     expect(
       wrapper
         .findWhere(
-          (node) => node.prop('testID') === 'ProfileView.DataEntry-birthDate'
+          (node) => node.prop('testID') === 'ProfileView.BirthDateDataEntry'
         )
         .first()
         .text()
@@ -94,7 +92,7 @@ describe('ProfileView', () => {
     expect(
       wrapper
         .findWhere(
-          (node) => node.prop('testID') === 'ProfileView.DataEntry-email'
+          (node) => node.prop('testID') === 'ProfileView.EmailDataEntry'
         )
         .first()
         .text()

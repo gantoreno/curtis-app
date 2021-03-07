@@ -65,7 +65,7 @@ const UpdatePasswordView = ({ eva, navigation }) => {
                 value={password}
                 style={eva.style.input}
                 label={() => <FormLabel title="Current password" required />}
-                testID="UpdatePasswordView.Input-password"
+                testID="UpdatePasswordView.PasswordInput"
                 disabled={isLoading}
                 onChangeText={(pass) => setPassword(pass)}
                 accessoryRight={({ ...rest }) => (
@@ -89,7 +89,7 @@ const UpdatePasswordView = ({ eva, navigation }) => {
                 value={newPassword}
                 style={eva.style.input}
                 label={() => <FormLabel title="New password" required />}
-                testID="UpdatePasswordView.Input-newPassword"
+                testID="UpdatePasswordView.NewPasswordInput"
                 disabled={isLoading}
                 onChangeText={(newPass) => setNewPassword(newPass)}
                 accessoryRight={({ ...rest }) => (
@@ -113,7 +113,7 @@ const UpdatePasswordView = ({ eva, navigation }) => {
                 value={newPasswordRepeat}
                 style={eva.style.input}
                 label={() => <FormLabel title="Repeat new password" required />}
-                testID="UpdatePasswordView.Input-newPasswordRepeat"
+                testID="UpdatePasswordView.NewPasswordRepeatInput"
                 disabled={isLoading}
                 onChangeText={(newPassRepeat) =>
                   setNewPasswordRepeat(newPassRepeat)

@@ -74,32 +74,32 @@ describe('DiagnosisView', () => {
     );
 
     wrapper
-      .findWhere((node) => node.prop('testID') === 'DiagnosisView.Input-HR')
+      .findWhere((node) => node.prop('testID') === 'DiagnosisView.HRInput')
       .first()
       .props()
       .onChangeText('133');
     wrapper
-      .findWhere((node) => node.prop('testID') === 'DiagnosisView.Input-Pd')
+      .findWhere((node) => node.prop('testID') === 'DiagnosisView.PdInput')
       .first()
       .props()
       .onChangeText('80');
     wrapper
-      .findWhere((node) => node.prop('testID') === 'DiagnosisView.Input-PQ')
+      .findWhere((node) => node.prop('testID') === 'DiagnosisView.PQInput')
       .first()
       .props()
       .onChangeText('96');
     wrapper
-      .findWhere((node) => node.prop('testID') === 'DiagnosisView.Input-QRS')
+      .findWhere((node) => node.prop('testID') === 'DiagnosisView.QRSInput')
       .first()
       .props()
       .onChangeText('102');
     wrapper
-      .findWhere((node) => node.prop('testID') === 'DiagnosisView.Input-QT')
+      .findWhere((node) => node.prop('testID') === 'DiagnosisView.QTInput')
       .first()
       .props()
       .onChangeText('304');
     wrapper
-      .findWhere((node) => node.prop('testID') === 'DiagnosisView.Input-QTcFra')
+      .findWhere((node) => node.prop('testID') === 'DiagnosisView.QTcFraInput')
       .first()
       .props()
       .onChangeText('389');

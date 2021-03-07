@@ -64,27 +64,27 @@ describe('OneMoreStepView', () => {
     );
 
     wrapper
-      .findWhere((node) => node.prop('testID') === 'OneMoreStepView.Input-sex')
+      .findWhere((node) => node.prop('testID') === 'OneMoreStepView.SexInput')
       .first()
       .props()
       .onSelect({ row: 0 });
     wrapper
       .findWhere(
-        (node) => node.prop('testID') === 'OneMoreStepView.Input-birthDate'
+        (node) => node.prop('testID') === 'OneMoreStepView.BirthDateInput'
       )
       .first()
       .props()
       .onSelect(new Date('Jan 1, 2000'));
     wrapper
       .findWhere(
-        (node) => node.prop('testID') === 'OneMoreStepView.Input-weight'
+        (node) => node.prop('testID') === 'OneMoreStepView.WeightInput'
       )
       .first()
       .props()
       .onChangeText('60');
     wrapper
       .findWhere(
-        (node) => node.prop('testID') === 'OneMoreStepView.Input-height'
+        (node) => node.prop('testID') === 'OneMoreStepView.HeightInput'
       )
       .first()
       .props()
