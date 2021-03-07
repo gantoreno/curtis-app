@@ -220,9 +220,9 @@ const DiagnosisView = ({ eva, route, navigation }) => {
                 size="large"
                 value={Pd}
                 style={eva.style.halfWidthInput}
-                label={() => <FormLabel unit="mmHg" title="Pd" required />}
+                label={() => <FormLabel unit="ms" title="Pd" required />}
                 testID="DiagnosisView.PdInput"
-                caption="Distal coronary pressure"
+                caption="T to P segment distance"
                 disabled={isLoading}
                 captionIcon={(props) => (
                   <Icon name="alert-circle-outline" {...props} />

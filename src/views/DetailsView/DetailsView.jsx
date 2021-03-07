@@ -105,7 +105,7 @@ const DetailsView = ({ eva, navigation, route }) => {
                 halfWidth
               />
               <DataEntry
-                unit="mmHg"
+                unit="ms"
                 label="Pd"
                 value={result.Pd}
                 testID="DetailsView.PdDataEntry"
