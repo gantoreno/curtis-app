@@ -22,8 +22,6 @@ export const signIn = (email, password, callback) => async (dispatch) => {
   try {
     await firebase.auth().signInWithEmailAndPassword(email, password);
 
-    Alert.alert('Success', "You're now signed in");
-
     if (callback) {
       callback();
     }
@@ -95,7 +93,9 @@ export const signOut = (callback) => async (dispatch) => {
           await firebase.auth().signOut();
           await AsyncStorage.removeItem('user');
 
-          callback();
+          if (callback) {
+            callback();
+          }
         },
       },
     ]);
@@ -168,8 +168,6 @@ export const editUser = (
       .doc(user.uid)
       .update({ name, sex, birthDate, weight, height, email });
 
-    Alert.alert('Success', 'Your profile was edited');
-
     if (callback) {
       callback();
     }
@@ -192,8 +190,6 @@ export const updatePassword = (password, newPassword, callback) => async (
       firebase.auth.EmailAuthProvider.credential(user.email, password)
     );
     await user.updatePassword(newPassword);
-
-    Alert.alert('Success', 'Your password was updated');
 
     if (callback) {
       callback();
@@ -287,8 +283,6 @@ export const saveDiagnosis = (diagnosis, callback) => async (
         history: firebase.firestore.FieldValue.arrayUnion(diagnosis),
       });
 
-    Alert.alert('Success', 'Your diagnosis is now saved');
-
     callback();
   } catch (e) {
     Alert.alert(e);
@@ -313,8 +307,6 @@ export const deleteDiagnosis = (diagnosis, callback) => async (
       .update({
         history: firebase.firestore.FieldValue.arrayRemove(diagnosis),
       });
-
-    Alert.alert('Success', 'Your diagnosis was successfully deleted');
 
     callback();
   } catch (e) {
