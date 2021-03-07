@@ -2,7 +2,7 @@
   "expo": {
     "name": "Curtis",
     "slug": "curtis",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "entryPoint": "./src/index.js",
