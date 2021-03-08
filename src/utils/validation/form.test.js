@@ -28,7 +28,7 @@ describe('Form', () => {
     expect(validateName('a')).toBe(false);
     expect(validateName('a')).toBe(false);
     expect(validateName('Foo')).toBe(true);
-    expect(validateName('Foo123')).toBe(false);
+    expect(validateName('Foo123')).toBe(true);
   });
 
   it('correctly validates email', () => {
