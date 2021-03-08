@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { HomeView, HistoryView, ProfileView } from '../../views';
 
-const TabBarIcon = ({ name, color, focused }) => {
+const TabBarIcon = ({ name, color, focused, ...rest }) => {
   const tabBarIconBackgroundStyle = {
     width: 44,
     height: 44,
@@ -23,7 +23,7 @@ const TabBarIcon = ({ name, color, focused }) => {
   };
 
   return (
-    <View style={tabBarIconBackgroundStyle}>
+    <View style={tabBarIconBackgroundStyle} {...rest}>
       <Icon name={name} fill={color} style={tabBarIconStyle} />
     </View>
   );
@@ -59,13 +59,17 @@ const HomeNavigator = ({ eva }) => {
         // eslint-disable-next-line react/prop-types
         tabBarIcon: ({ size, color, focused }) => {
           let name;
+          let testID;
 
           if (route.name === 'Home') {
             name = 'heart-outline';
+            testID = 'HomeNavigator.HomeTab';
           } else if (route.name === 'History') {
             name = 'book-open-outline';
+            testID = 'HomeNavigator.HistoryTab';
           } else if (route.name === 'Profile') {
             name = 'person-outline';
+            testID = 'HomeNavigator.ProfileTab';
           }
 
           return (
@@ -73,6 +77,7 @@ const HomeNavigator = ({ eva }) => {
               name={name}
               size={size}
               color={color}
+              testID={testID}
               focused={focused}
             />
           );
