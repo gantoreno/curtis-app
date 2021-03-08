@@ -3,7 +3,7 @@ import emailValidator from 'email-validator';
 import PasswordValidator from 'password-validator';
 
 export const validateName = (name) =>
-  validator.isAlpha(name, ['en-US'], { ignore: ' ' }) &&
+  name.match(/^[a-zA-Z0-9\s-]*$/) &&
   validator.isLength(name, { min: 3, max: 32 });
 
 export const validateEmail = (email) => emailValidator.validate(email);
