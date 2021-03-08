@@ -19,7 +19,7 @@ const DetailsView = ({ eva, navigation, route }) => {
   const { result, fromDiagnosis = false } = route.params;
 
   return (
-    <SafeAreaView>
+    <SafeAreaView testID="DetailsView">
       <StatusBar
         translucent={false}
         backgroundColor={eva.theme['color-basic-100']}

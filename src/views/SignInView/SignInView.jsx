@@ -71,7 +71,7 @@ const SignInView = ({ eva, navigation }) => {
     validateEmail(email) && validatePassword(password);
 
   return (
-    <SafeAreaView style={eva.style.safeAreaView}>
+    <SafeAreaView style={eva.style.safeAreaView} testID="SignInView">
       <StatusBar
         translucent={false}
         backgroundColor={eva.theme['color-basic-100']}

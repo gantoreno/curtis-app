@@ -36,7 +36,7 @@ const SignUpView = ({ eva, navigation }) => {
     validatePasswordRepeat(password, passwordRepeat);
 
   return (
-    <SafeAreaView style={eva.style.safeAreaView}>
+    <SafeAreaView style={eva.style.safeAreaView} testID="SignUpView">
       <StatusBar
         translucent={false}
         backgroundColor={eva.theme['color-basic-100']}

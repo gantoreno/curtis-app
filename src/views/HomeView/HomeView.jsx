@@ -43,7 +43,7 @@ const HomeView = ({ eva, navigation }) => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView testID="HomeView">
       <StatusBar
         translucent={false}
         backgroundColor={eva.theme['color-basic-100']}

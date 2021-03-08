@@ -16,7 +16,7 @@ const ProfileView = ({ eva, navigation }) => {
   const { user, isLoading } = useSelector((state) => state.session);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView testID="ProfileView">
       <StatusBar
         translucent={false}
         backgroundColor={eva.theme['color-basic-100']}

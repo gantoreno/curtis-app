@@ -15,7 +15,7 @@ const WelcomeView = ({ eva, navigation }) => {
   }
 
   return (
-    <SafeAreaView style={eva.style.safeAreaView} testID="welcome">
+    <SafeAreaView style={eva.style.safeAreaView} testID="WelcomeView">
       <StatusBar
         translucent={false}
         backgroundColor={eva.theme['color-basic-100']}

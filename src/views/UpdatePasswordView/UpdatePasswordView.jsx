@@ -45,7 +45,7 @@ const UpdatePasswordView = ({ eva, navigation }) => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView testID="UpdatePasswordView">
       <StatusBar
         translucent={false}
         backgroundColor={eva.theme['color-basic-100']}

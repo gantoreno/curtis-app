@@ -40,7 +40,7 @@ const OneMoreStepView = ({ eva, route }) => {
     validateHeight(height);
 
   return (
-    <SafeAreaView style={eva.style.safeAreaView}>
+    <SafeAreaView style={eva.style.safeAreaView} testID="OneMoreStepView">
       <StatusBar
         translucent={false}
         backgroundColor={eva.theme['color-basic-100']}

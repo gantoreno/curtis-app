@@ -46,7 +46,7 @@ const EditProfileView = ({ eva, navigation }) => {
     validateHeight(height);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView testID="EditProfileView">
       <StatusBar
         translucent={false}
         backgroundColor={eva.theme['color-basic-100']}

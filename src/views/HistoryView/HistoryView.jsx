@@ -87,7 +87,7 @@ const HistoryView = ({ eva, navigation }) => {
   const { user } = useSelector((state) => state.session);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView testID="HistoryView">
       <StatusBar
         translucent={false}
         backgroundColor={eva.theme['color-basic-100']}
