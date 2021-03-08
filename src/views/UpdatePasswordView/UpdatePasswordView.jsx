@@ -140,7 +140,12 @@ const UpdatePasswordView = ({ eva, navigation }) => {
             disabled={isLoading || !validateFields()}
             onPress={() =>
               dispatch(
-                updatePassword(password, newPassword, () => {
+                updatePassword(password, newPassword, (err) => {
+                  if (err) {
+                    Alert.alert('Error', err.message);
+                    return;
+                  }
+
                   navigation.goBack();
                 })
               )

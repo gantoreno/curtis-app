@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { StatusBar } from 'expo-status-bar';
 import { useSelector, useDispatch } from 'react-redux';
-import { View, ScrollView, SafeAreaView } from 'react-native';
+import { View, Alert, ScrollView, SafeAreaView } from 'react-native';
 import {
   Text,
   Input,
@@ -150,8 +150,12 @@ const EditProfileView = ({ eva, navigation }) => {
                   weight,
                   height,
                   email,
-                  () => {
-                    navigation.goBack();
+                  (err) => {
+                    if (err) {
+                      Alert.alert('Error', err.message);
+                    } else {
+                      navigation.goBack();
+                    }
                   }
                 )
               )

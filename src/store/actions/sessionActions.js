@@ -22,11 +22,9 @@ export const signIn = (email, password, callback) => async (dispatch) => {
   try {
     await firebase.auth().signInWithEmailAndPassword(email, password);
 
-    if (callback) {
-      callback();
-    }
-  } catch (e) {
-    Alert.alert('Error', e.message);
+    callback?.();
+  } catch (err) {
+    callback?.(err);
   } finally {
     dispatch(setLoadingStatus(false));
   }
@@ -63,13 +61,9 @@ export const signUp = (
 
     await firebase.firestore().collection('users').doc(uid).set(user);
 
-    Alert.alert('Success', "You're now signed up");
-
-    if (callback) {
-      callback();
-    }
+    callback?.();
   } catch (e) {
-    Alert.alert(e);
+    callback?.(e);
   } finally {
     dispatch(setLoadingStatus(false));
   }
@@ -93,14 +87,12 @@ export const signOut = (callback) => async (dispatch) => {
           await firebase.auth().signOut();
           await AsyncStorage.removeItem('user');
 
-          if (callback) {
-            callback();
-          }
+          callback?.();
         },
       },
     ]);
-  } catch (e) {
-    Alert.alert('Something went wrong', 'Please try again later');
+  } catch (err) {
+    callback?.(err);
   }
 };
 
@@ -168,11 +160,9 @@ export const editUser = (
       .doc(user.uid)
       .update({ name, sex, birthDate, weight, height, email });
 
-    if (callback) {
-      callback();
-    }
-  } catch (e) {
-    Alert.alert('Error', e.message);
+    callback?.();
+  } catch (err) {
+    callback?.(err);
   } finally {
     dispatch(setLoadingStatus(false));
   }
@@ -191,11 +181,9 @@ export const updatePassword = (password, newPassword, callback) => async (
     );
     await user.updatePassword(newPassword);
 
-    if (callback) {
-      callback();
-    }
-  } catch (e) {
-    Alert.alert('Error', e.message);
+    callback?.();
+  } catch (err) {
+    callback?.(err);
   } finally {
     dispatch(setLoadingStatus(false));
   }
@@ -207,11 +195,9 @@ export const resetPassword = (email, callback) => async (dispatch) => {
   try {
     await firebase.auth().sendPasswordResetEmail(email);
 
-    if (callback) {
-      callback();
-    }
-  } catch (e) {
-    Alert.alert('Error', e.message);
+    callback?.();
+  } catch (err) {
+    callback?.(err);
   } finally {
     dispatch(setLoadingStatus(false));
   }
@@ -254,13 +240,9 @@ export const runDiagnosis = (metrics, callback) => async (dispatch) => {
       data: diagnosis,
     } = await axios.post(`${CURTIS_SERVER}/api/diagnose`, { ...metrics });
 
-    callback(diagnosis);
-  } catch (e) {
-    if (e.response?.data?.detail) {
-      Alert.alert(e.response.data.detail);
-    } else {
-      Alert.alert('Something went wrong, check your connection and try again');
-    }
+    callback?.(undefined, diagnosis);
+  } catch (err) {
+    callback?.(err);
   } finally {
     dispatch(setLoadingStatus(false));
   }
@@ -283,9 +265,9 @@ export const saveDiagnosis = (diagnosis, callback) => async (
         history: firebase.firestore.FieldValue.arrayUnion(diagnosis),
       });
 
-    callback();
-  } catch (e) {
-    Alert.alert(e);
+    callback?.();
+  } catch (err) {
+    callback?.(err);
   } finally {
     dispatch(setLoadingStatus(false));
   }
@@ -308,9 +290,9 @@ export const deleteDiagnosis = (diagnosis, callback) => async (
         history: firebase.firestore.FieldValue.arrayRemove(diagnosis),
       });
 
-    callback();
-  } catch (e) {
-    Alert.alert(e);
+    callback?.();
+  } catch (err) {
+    callback?.(err);
   } finally {
     dispatch(setLoadingStatus(false));
   }
@@ -327,14 +309,12 @@ export const checkForEmail = (email, callback) => async (dispatch) => {
       .get();
 
     if (!snapshot.empty) {
-      Alert.alert('E-mail already taken', 'Please sign in instead');
-
-      return;
+      throw new Error('E-mail already taken, please sign in instead');
     }
 
-    callback();
-  } catch (e) {
-    Alert.alert(e);
+    callback?.();
+  } catch (err) {
+    callback?.(err);
   } finally {
     dispatch(setLoadingStatus(false));
   }

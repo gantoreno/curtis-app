@@ -159,7 +159,12 @@ const DetailsView = ({ eva, navigation, route }) => {
                 testID="DetailsView.SaveButton"
                 onPress={() =>
                   dispatch(
-                    saveDiagnosis(result, () => {
+                    saveDiagnosis(result, (err) => {
+                      if (err) {
+                        Alert.alert('Error', err.message);
+                        return;
+                      }
+
                       navigation.navigate('Home');
                     })
                   )
@@ -223,7 +228,12 @@ const DetailsView = ({ eva, navigation, route }) => {
                         style: 'destructive',
                         onPress: () => {
                           dispatch(
-                            deleteDiagnosis(result, () => {
+                            deleteDiagnosis(result, (err) => {
+                              if (err) {
+                                Alert.alert('Error', err.message);
+                                return;
+                              }
+
                               navigation.navigate('Home');
                             })
                           );

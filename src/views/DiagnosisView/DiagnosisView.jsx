@@ -86,7 +86,20 @@ const DiagnosisView = ({ eva, route, navigation }) => {
     };
 
     dispatch(
-      runDiagnosis(metrics, (diagnosis) => {
+      runDiagnosis(metrics, (err, diagnosis) => {
+        if (err) {
+          if (err.response?.data?.detail) {
+            Alert.alert('Error', err.response.data.detail);
+          } else {
+            Alert.alert(
+              'Error',
+              'Something went wrong, check your connection and try again'
+            );
+          }
+
+          return;
+        }
+
         const result = {
           date: parseCustomDateString(new Date()),
           timestamp: Date.now(),

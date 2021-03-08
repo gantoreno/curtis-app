@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import { Text, withStyles } from '@ui-kitten/components';
 import { useSelector, useDispatch } from 'react-redux';
-import { View, Platform, ScrollView, SafeAreaView } from 'react-native';
+import { View, Alert, Platform, ScrollView, SafeAreaView } from 'react-native';
 
 import { signOut } from '../../store/actions/sessionActions';
 import { expo as app } from '../../../app.json';
@@ -100,7 +100,18 @@ const ProfileView = ({ eva, navigation }) => {
           <Button
             style={eva.style.editButton}
             testID="ProfileView.SignOutButton"
-            onPress={() => dispatch(signOut())}
+            onPress={() =>
+              dispatch(
+                signOut((err) => {
+                  if (err) {
+                    Alert.alert(
+                      'Something went wrong',
+                      'Please try again later'
+                    );
+                  }
+                })
+              )
+            }
             disabled={isLoading}
             appearance="outline"
           >

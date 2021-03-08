@@ -4,7 +4,12 @@ import PropTypes from 'prop-types';
 import { StatusBar } from 'expo-status-bar';
 import { useSelector, useDispatch } from 'react-redux';
 import { Text, Icon, Input, withStyles } from '@ui-kitten/components';
-import { View, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
+import {
+  View,
+  Alert,
+  SafeAreaView,
+  TouchableWithoutFeedback,
+} from 'react-native';
 
 import { signIn, resetPassword } from '../../store/actions/sessionActions';
 import { Button, Wrapper, FormLabel } from '../../shared';
@@ -82,7 +87,12 @@ const SignInView = ({ eva, navigation }) => {
           }
           onAccept={() =>
             dispatch(
-              resetPassword(confirmationEmail, () => {
+              resetPassword(confirmationEmail, (err) => {
+                if (err) {
+                  Alert.alert('Error', err.message);
+                  return;
+                }
+
                 setIsVisible(false);
                 setConfirmationEmail('');
               })
@@ -144,7 +154,15 @@ const SignInView = ({ eva, navigation }) => {
         <Button
           style={eva.style.button}
           testID="SignInView.SignInButton"
-          onPress={() => dispatch(signIn(email, password))}
+          onPress={() =>
+            dispatch(
+              signIn(email, password, (err) => {
+                if (err) {
+                  Alert.alert('Error', err.message);
+                }
+              })
+            )
+          }
           disabled={isLoading || !validateFields()}
         >
           Sign in

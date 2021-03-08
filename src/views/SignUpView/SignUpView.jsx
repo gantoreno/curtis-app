@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import { StatusBar } from 'expo-status-bar';
 import { useSelector, useDispatch } from 'react-redux';
 import { Text, Icon, Input, withStyles } from '@ui-kitten/components';
-import { View, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
+import {
+  View,
+  Alert,
+  SafeAreaView,
+  TouchableWithoutFeedback,
+} from 'react-native';
 
 import { checkForEmail } from '../../store/actions/sessionActions';
 import { Wrapper, Button, FormLabel } from '../../shared';
@@ -120,7 +125,12 @@ const SignUpView = ({ eva, navigation }) => {
           testID="SignUpView.SignUpButton"
           onPress={() =>
             dispatch(
-              checkForEmail(email, () => {
+              checkForEmail(email, (err) => {
+                if (err) {
+                  Alert.alert('Error', err.message);
+                  return;
+                }
+
                 navigation.navigate('One More Step', {
                   name,
                   email,
