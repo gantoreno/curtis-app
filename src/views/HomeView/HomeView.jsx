@@ -79,7 +79,6 @@ const HomeView = ({ eva, navigation }) => {
         <Button
           testID="HomeView.ViewHistoryButton"
           onPress={() => navigation.navigate('History')}
-          appearance="outline"
         >
           View history
         </Button>

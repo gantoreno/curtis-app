@@ -140,7 +140,6 @@ const SignUpView = ({ eva, navigation }) => {
             )
           }
           disabled={isLoading || !validateFields()}
-          appearance="outline"
         >
           Sign up
         </Button>

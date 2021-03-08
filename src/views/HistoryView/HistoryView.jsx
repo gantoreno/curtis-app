@@ -68,7 +68,6 @@ const HistoryCard = ({
         style={historyCardButtonStyle}
         status={isSuccess ? 'info' : 'primary'}
         onPress={onPress}
-        appearance="outline"
       >
         View
       </Button>

@@ -126,7 +126,6 @@ const OneMoreStepView = ({ eva, route }) => {
             )
           }
           disabled={!validateFields() || isLoading}
-          appearance="outline"
         >
           Create my account
         </Button>
