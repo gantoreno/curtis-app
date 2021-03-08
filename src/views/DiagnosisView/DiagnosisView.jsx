@@ -130,7 +130,6 @@ const DiagnosisView = ({ eva, route, navigation }) => {
   return (
     <SafeAreaView style={eva.style.safeAreaView} testID="DiagnosisView">
       <StatusBar
-        // style="dark"
         translucent={false}
         backgroundColor={eva.theme['color-basic-100']}
       />
