@@ -85,6 +85,7 @@ const SignUpView = ({ eva, navigation }) => {
               </TouchableWithoutFeedback>
             )}
             autoCapitalize="none"
+            textContentType="password"
             secureTextEntry={isSecureTextEntry}
             autoCompleteType="off"
           />
@@ -105,6 +106,7 @@ const SignUpView = ({ eva, navigation }) => {
               </TouchableWithoutFeedback>
             )}
             autoCapitalize="none"
+            textContentType="none"
             secureTextEntry={isSecureTextEntry}
             autoCompleteType="off"
           />
