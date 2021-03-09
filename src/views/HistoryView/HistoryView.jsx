@@ -66,6 +66,7 @@ const HistoryCard = ({
       </Text>
       <Button
         style={historyCardButtonStyle}
+        testID="HistoryView.HistoryCard.ViewButton"
         status={isSuccess ? 'info' : 'primary'}
         onPress={onPress}
       >

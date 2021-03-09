@@ -13,7 +13,7 @@
       "type": "android.emulator",
       "binaryPath": "bin/android/curtis.apk",
       "device": {
-        "avdName": "Pixel_2_API_29"
+        "avdName": "Pixel_4_XL_API_30"
       }
     }
   }
