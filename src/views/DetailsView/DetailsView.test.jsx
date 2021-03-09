@@ -43,28 +43,6 @@ const mockRoute1 = {
     fromDiagnosis: true,
   },
 };
-const mockRoute2 = {
-  params: {
-    result: {
-      sex: 0,
-      date: 'Jan 1, 2021',
-      name: 'Test user',
-      email: 'user@test.com',
-      weight: 60,
-      height: 175,
-      birthDate: 'Jan 1, 2000',
-      isExternal: true,
-      diagnosis: 'Sinus tachycardia with short PQ',
-      HR: 133,
-      Pd: 80,
-      PQ: 96,
-      QRS: 102,
-      QT: 304,
-      QTcFra: 389,
-    },
-    fromDiagnosis: false,
-  },
-};
 
 describe('DetailsView', () => {
   beforeEach(() => {
@@ -162,35 +140,5 @@ describe('DetailsView', () => {
         .first()
         .text()
     ).toMatch(/389/i);
-  });
-
-  it('opens alert on discard button press', async () => {
-    const wrapper = mount(
-      <AppProvider>
-        <DetailsView route={mockRoute1} navigation={navigation} />
-      </AppProvider>
-    );
-
-    wrapper
-      .findWhere((node) => node.prop('testID') === 'DetailsView.DiscardButton')
-      .first()
-      .simulate('click');
-
-    expect(Alert.alert).toHaveBeenCalled();
-  });
-
-  it('opens alert on delete button press', async () => {
-    const wrapper = mount(
-      <AppProvider>
-        <DetailsView route={mockRoute2} navigation={navigation} />
-      </AppProvider>
-    );
-
-    wrapper
-      .findWhere((node) => node.prop('testID') === 'DetailsView.DeleteButton')
-      .first()
-      .simulate('click');
-
-    expect(Alert.alert).toHaveBeenCalled();
   });
 });

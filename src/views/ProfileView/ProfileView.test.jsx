@@ -98,19 +98,4 @@ describe('ProfileView', () => {
         .text()
     ).toMatch(/user@test\.com/i);
   });
-
-  it('opens alert on sign out button press', async () => {
-    const wrapper = mount(
-      <AppProvider>
-        <ProfileView navigation={navigation} />
-      </AppProvider>
-    );
-
-    wrapper
-      .findWhere((node) => node.prop('testID') === 'ProfileView.SignOutButton')
-      .first()
-      .simulate('click');
-
-    expect(Alert.alert).toHaveBeenCalled();
-  });
 });

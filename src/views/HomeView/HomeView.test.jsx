@@ -3,8 +3,8 @@
  */
 import React from 'react';
 import { Alert } from 'react-native';
+import { shallow } from 'enzyme';
 import { useSelector } from 'react-redux';
-import { mount, shallow } from 'enzyme';
 
 import HomeView from './HomeView';
 import { navigation } from '../../../__mocks__';
@@ -42,35 +42,5 @@ describe('HomeView', () => {
         <HomeView navigation={navigation} />
       </AppProvider>
     );
-  });
-
-  it('opens alert on curtis button press', async () => {
-    const wrapper = mount(
-      <AppProvider>
-        <HomeView navigation={navigation} />
-      </AppProvider>
-    );
-
-    wrapper
-      .findWhere((node) => node.prop('testID') === 'HomeView.CurtisButton')
-      .first()
-      .simulate('click');
-
-    expect(Alert.alert).toHaveBeenCalled();
-  });
-
-  it('navigates to history on button press', async () => {
-    const wrapper = mount(
-      <AppProvider>
-        <HomeView navigation={navigation} />
-      </AppProvider>
-    );
-
-    wrapper
-      .findWhere((node) => node.prop('testID') === 'HomeView.ViewHistoryButton')
-      .first()
-      .simulate('click');
-
-    expect(navigation.navigate).toHaveBeenCalledWith('History');
   });
 });
