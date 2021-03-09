@@ -24,7 +24,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.gantoreno.curtis"
+      "package": "com.curtis.curtis"
     },
     "web": {
       "favicon": "./assets/favicon.png"
