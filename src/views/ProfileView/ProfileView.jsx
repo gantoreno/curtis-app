@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Dialog from 'react-native-dialog';
 import PropTypes from 'prop-types';
 import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
@@ -11,9 +12,39 @@ import { expo as app } from '../../../app.json';
 import { Button, Wrapper, DataEntry } from '../../shared';
 import { parseSexFromIndex, parseAgeFromDateString } from '../../utils/tools';
 
+const SignOutDialog = ({ visible, onNo, onYes }) => (
+  <View>
+    <Dialog.Container visible={visible}>
+      <Dialog.Title>Confirm</Dialog.Title>
+      <Dialog.Description>
+        Are you sure you want to sign out?
+      </Dialog.Description>
+      <Dialog.Button
+        label="No"
+        testID="ProfileView.SignOutDialog.NoButton"
+        onPress={() => onNo()}
+      />
+      <Dialog.Button
+        label="Yes"
+        style={{ color: 'red' }}
+        testID="ProfileView.SignOutDialog.YesButton"
+        onPress={() => onYes()}
+      />
+    </Dialog.Container>
+  </View>
+);
+
+SignOutDialog.propTypes = {
+  visible: PropTypes.bool.isRequired,
+  onNo: PropTypes.func.isRequired,
+  onYes: PropTypes.func.isRequired,
+};
+
 const ProfileView = ({ eva, navigation }) => {
   const dispatch = useDispatch();
   const { user, isLoading } = useSelector((state) => state.session);
+
+  const [isSignOutDialogVisible, setIsSignOutDialogVisible] = useState(false);
 
   return (
     <SafeAreaView testID="ProfileView">
@@ -22,6 +53,20 @@ const ProfileView = ({ eva, navigation }) => {
         backgroundColor={eva.theme['color-basic-100']}
       />
       <ScrollView style={eva.style.scrollView}>
+        <SignOutDialog
+          visible={isSignOutDialogVisible}
+          onNo={() => setIsSignOutDialogVisible(false)}
+          onYes={() => {
+            setIsSignOutDialogVisible(false);
+            dispatch(
+              signOut((err) => {
+                if (err) {
+                  Alert.alert('Something went wrong', 'Please try again later');
+                }
+              })
+            );
+          }}
+        />
         <Wrapper style={eva.style.wrapper}>
           <Text style={eva.style.title} category="h1">
             Your{'\n'}
@@ -100,18 +145,7 @@ const ProfileView = ({ eva, navigation }) => {
           <Button
             style={eva.style.editButton}
             testID="ProfileView.SignOutButton"
-            onPress={() =>
-              dispatch(
-                signOut((err) => {
-                  if (err) {
-                    Alert.alert(
-                      'Something went wrong',
-                      'Please try again later'
-                    );
-                  }
-                })
-              )
-            }
+            onPress={() => setIsSignOutDialogVisible(true)}
             disabled={isLoading}
             appearance="outline"
           >

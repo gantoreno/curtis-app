@@ -19,8 +19,8 @@ const PasswordResetDialog = ({
   visible,
   value,
   onChangeText,
-  onAccept,
   onCancel,
+  onSend,
   disabled,
 }) => (
   <View>
@@ -40,7 +40,7 @@ const PasswordResetDialog = ({
       <Dialog.Button label="Cancel" onPress={() => onCancel()} />
       <Dialog.Button
         label="Send"
-        onPress={() => onAccept()}
+        onPress={() => onSend()}
         disabled={disabled}
       />
     </Dialog.Container>
@@ -51,8 +51,8 @@ PasswordResetDialog.propTypes = {
   visible: PropTypes.bool.isRequired,
   value: PropTypes.string.isRequired,
   onChangeText: PropTypes.func.isRequired,
-  onAccept: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
+  onSend: PropTypes.func.isRequired,
   disabled: PropTypes.bool.isRequired,
 };
 
@@ -64,7 +64,10 @@ const SignInView = ({ eva, navigation }) => {
   const [password, setPassword] = useState('');
   const [isSecureTextEntry, setIsSecureTextEntry] = useState(true);
 
-  const [isVisible, setIsVisible] = useState(false);
+  const [
+    isPasswordResetDialogVisible,
+    setIsPasswordResetDialogVisible,
+  ] = useState(false);
   const [confirmationEmail, setConfirmationEmail] = useState('');
 
   const validateFields = () =>
@@ -79,13 +82,17 @@ const SignInView = ({ eva, navigation }) => {
       <Wrapper style={eva.style.wrapper} centered>
         <PasswordResetDialog
           value={confirmationEmail}
-          visible={isVisible}
+          visible={isPasswordResetDialogVisible}
           onChangeText={(newConfirmationEmail) =>
             setConfirmationEmail(
               newConfirmationEmail.replaceAll(/\s/g, '').replaceAll(/\t/g, '')
             )
           }
-          onAccept={() =>
+          onCancel={() => {
+            setIsPasswordResetDialogVisible(false);
+            setConfirmationEmail('');
+          }}
+          onSend={() =>
             dispatch(
               resetPassword(confirmationEmail, (err) => {
                 if (err) {
@@ -93,15 +100,11 @@ const SignInView = ({ eva, navigation }) => {
                   return;
                 }
 
-                setIsVisible(false);
+                setIsPasswordResetDialogVisible(false);
                 setConfirmationEmail('');
               })
             )
           }
-          onCancel={() => {
-            setIsVisible(false);
-            setConfirmationEmail('');
-          }}
           disabled={isLoading || !validateEmail(confirmationEmail)}
         />
         <Text style={eva.style.title} category="h1">
@@ -145,7 +148,7 @@ const SignInView = ({ eva, navigation }) => {
             <Text
               style={eva.style.passwordResetLink}
               status="primary"
-              onPress={() => setIsVisible(true)}
+              onPress={() => setIsPasswordResetDialogVisible(true)}
             >
               Forgot your password?
             </Text>

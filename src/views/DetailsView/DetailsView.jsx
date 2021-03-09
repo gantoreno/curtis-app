@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Dialog from 'react-native-dialog';
 import PropTypes from 'prop-types';
 import { StatusBar } from 'expo-status-bar';
 import { Text, withStyles } from '@ui-kitten/components';
@@ -12,11 +13,76 @@ import {
 import { Tag, Button, Wrapper, DataEntry } from '../../shared';
 import { parseSexFromIndex, parseAgeFromDateString } from '../../utils/tools';
 
+const DiscardDiagnosisDialog = ({ visible, onNo, onYes }) => (
+  <View>
+    <Dialog.Container visible={visible}>
+      <Dialog.Title>Confirm</Dialog.Title>
+      <Dialog.Description>
+        Are you sure you want to discard this diagnosis?
+      </Dialog.Description>
+      <Dialog.Button
+        label="No"
+        testID="DetailsView.DiscardDiagnosisDialog.NoButton"
+        onPress={() => onNo()}
+      />
+      <Dialog.Button
+        label="Yes"
+        style={{ color: 'red' }}
+        testID="DetailsView.DiscardDiagnosisDialog.YesButton"
+        onPress={() => onYes()}
+      />
+    </Dialog.Container>
+  </View>
+);
+
+DiscardDiagnosisDialog.propTypes = {
+  visible: PropTypes.bool.isRequired,
+  onNo: PropTypes.func.isRequired,
+  onYes: PropTypes.func.isRequired,
+};
+
+const DeleteDiagnosisDialog = ({ visible, onNo, onYes }) => (
+  <View>
+    <Dialog.Container visible={visible}>
+      <Dialog.Title>Confirm</Dialog.Title>
+      <Dialog.Description>
+        Are you sure you want to delete this diagnosis?
+      </Dialog.Description>
+      <Dialog.Button
+        label="No"
+        testID="DetailsView.DeleteDiagnosisDialog.NoButton"
+        onPress={() => onNo()}
+      />
+      <Dialog.Button
+        label="Yes"
+        style={{ color: 'red' }}
+        testID="DetailsView.DeleteDiagnosisDialog.YesButton"
+        onPress={() => onYes()}
+      />
+    </Dialog.Container>
+  </View>
+);
+
+DeleteDiagnosisDialog.propTypes = {
+  visible: PropTypes.bool.isRequired,
+  onNo: PropTypes.func.isRequired,
+  onYes: PropTypes.func.isRequired,
+};
+
 const DetailsView = ({ eva, navigation, route }) => {
   const dispatch = useDispatch();
   const { isLoading } = useSelector((state) => state.session);
 
   const { result, fromDiagnosis = false } = route.params;
+
+  const [
+    isDiscardDiagnosisDialogVisible,
+    setIsDiscardDiagnosisDialogVisible,
+  ] = useState(false);
+  const [
+    isDeleteDiagnosisDialogVisible,
+    setIsDeleteDiagnosisDialogVisible,
+  ] = useState(false);
 
   return (
     <SafeAreaView testID="DetailsView">
@@ -25,6 +91,31 @@ const DetailsView = ({ eva, navigation, route }) => {
         backgroundColor={eva.theme['color-basic-100']}
       />
       <ScrollView style={eva.style.scrollView}>
+        <DiscardDiagnosisDialog
+          visible={isDiscardDiagnosisDialogVisible}
+          onNo={() => setIsDiscardDiagnosisDialogVisible(false)}
+          onYes={() => {
+            setIsDiscardDiagnosisDialogVisible(false);
+            navigation.navigate('Home');
+          }}
+        />
+        <DeleteDiagnosisDialog
+          visible={isDeleteDiagnosisDialogVisible}
+          onNo={() => setIsDeleteDiagnosisDialogVisible(false)}
+          onYes={() => {
+            setIsDeleteDiagnosisDialogVisible(false);
+            dispatch(
+              deleteDiagnosis(result, (err) => {
+                if (err) {
+                  Alert.alert('Error', err.message);
+                  return;
+                }
+
+                navigation.navigate('Home');
+              })
+            );
+          }}
+        />
         <Wrapper>
           <Text style={eva.style.title} category="h1">
             Analysis{'\n'}
@@ -176,22 +267,7 @@ const DetailsView = ({ eva, navigation, route }) => {
               <Button
                 style={eva.style.discardButton}
                 testID="DetailsView.DiscardButton"
-                onPress={() =>
-                  Alert.alert(
-                    'Confirm',
-                    'Are you sure you want to discard this results?',
-                    [
-                      {
-                        text: 'No, take me back to the results',
-                      },
-                      {
-                        text: 'Yes, discard this results',
-                        style: 'destructive',
-                        onPress: () => navigation.navigate('Home'),
-                      },
-                    ]
-                  )
-                }
+                onPress={() => setIsDiscardDiagnosisDialogVisible(true)}
                 disabled={isLoading}
                 appearance="outline"
               >
@@ -215,33 +291,7 @@ const DetailsView = ({ eva, navigation, route }) => {
               <Button
                 style={eva.style.deleteButton}
                 testID="DetailsView.DeleteButton"
-                onPress={() =>
-                  Alert.alert(
-                    'Confirm',
-                    'Are you sure you want to delete this results?',
-                    [
-                      {
-                        text: 'No, take me back to the results',
-                      },
-                      {
-                        text: 'Yes, delete this results',
-                        style: 'destructive',
-                        onPress: () => {
-                          dispatch(
-                            deleteDiagnosis(result, (err) => {
-                              if (err) {
-                                Alert.alert('Error', err.message);
-                                return;
-                              }
-
-                              navigation.navigate('Home');
-                            })
-                          );
-                        },
-                      },
-                    ]
-                  )
-                }
+                onPress={() => setIsDeleteDiagnosisDialogVisible(true)}
                 appearance="outline"
               >
                 Delete

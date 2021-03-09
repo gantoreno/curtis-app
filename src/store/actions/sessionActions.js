@@ -73,26 +73,14 @@ export const signOut = (callback) => async (dispatch) => {
   dispatch(setLoadingStatus(true));
 
   try {
-    Alert.alert('Confirm', 'Are you sure you want to sign out?', [
-      {
-        text: 'No, stay',
-        onPress: () => {
-          dispatch(setLoadingStatus(false));
-        },
-      },
-      {
-        text: 'Yes, sign me out',
-        style: 'destructive',
-        onPress: async () => {
-          await firebase.auth().signOut();
-          await AsyncStorage.removeItem('user');
+    await firebase.auth().signOut();
+    await AsyncStorage.removeItem('user');
 
-          callback?.();
-        },
-      },
-    ]);
+    callback?.();
   } catch (err) {
     callback?.(err);
+  } finally {
+    dispatch(setLoadingStatus(false));
   }
 };
 
